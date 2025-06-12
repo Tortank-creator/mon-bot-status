@@ -11,6 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run Upptime
-        uses: upptime/upptime@v1.0.3
+        uses: uses: upptime/upptime@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

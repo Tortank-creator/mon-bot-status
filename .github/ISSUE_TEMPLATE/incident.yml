@@ -1,0 +1,9 @@
+name: Incident Report
+description: Use this template to report an incident.
+title: "Incident: "
+labels: incident
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please provide details about the incident here.

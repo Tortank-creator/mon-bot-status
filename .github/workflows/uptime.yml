@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Check Replit status
         run: |
-          curl -s -o /dev/null -w "%{http_code}" https://eddfaa0c-cfb7-4684-acb6-4910f54cfddb-00-3vrmduh298cjk.riker.replit.dev/ | grep 200
+          curl -s -o /dev/null -w "%{http_code}" https://eddfaa0c-cfb7-4684-acb6-4910f54cfddb-00-3vrmduh298cjk.riker.replit.dev | grep 200

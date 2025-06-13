@@ -2,13 +2,20 @@ name: Monitor Website
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # toutes les 5 minutes
+    - cron: '*/5 * * * *'  # Ping toutes les 5 minutes
   workflow_dispatch:
 
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Check Replit status
+      - name: Pinger Replit
         run: |
-          curl -s -o /dev/null -w "%{http_code}" https://eddfaa0c-cfb7-4684-acb6-4910f54cfddb-00-3vrmduh298cjk.riker.replit.dev | grep 200
+          echo "⌛ Pinging Replit..."
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://eddfaa0c-cfb7-4684-acb6-4910f54cfddb-00-3vrmduh298cjk.riker.replit.dev)
+          echo "Code HTTP: $response"
+          if [ "$response" != "200" ]; then
+            echo "❌ Site down ! Code: $response"
+            exit 1
+          fi
+          echo "✅ Site UP"
